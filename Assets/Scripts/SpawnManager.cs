@@ -17,13 +17,19 @@ public class SpawnManager : MonoBehaviour
     void Update()
     {
          sphereCount = FindObjectsByType<Sphere>(FindObjectsSortMode.None).Length;
-        if(sphereCount == 10)
+        if(sphereCount >= 10)
         {
             CancelInvoke ("SpawnSphereWave");
         }
-        if(sphereCount < 10)
+
+        
+        
+    }
+    void FixedUpdate()
+    {
+    if(Input.GetMouseButtonDown(0) && sphereCount < 10)
         {
-            
+            InvokeRepeating("SpawnSphereWave", 2.5f, spawnInterval);
         }
     }
     private Vector3 GenerateSpawnPosition()
@@ -40,4 +46,5 @@ public class SpawnManager : MonoBehaviour
           Instantiate(spherePrefab, GenerateSpawnPosition(),spherePrefab.transform.rotation);
         
     }
+    
 }
