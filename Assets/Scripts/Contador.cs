@@ -16,6 +16,6 @@ public class Contador : MonoBehaviour
     void Update()
     {
         sphereRest = FindObjectsByType<Sphere>(FindObjectsSortMode.None).Length;
-        contadorText.text = "Esferas: " + sphereRest;
+        contadorText.text = "Esferas Activas: " + sphereRest;
     }
 }

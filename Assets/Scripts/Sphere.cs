@@ -1,23 +1,21 @@
 using UnityEngine;
 
 public class Sphere : MonoBehaviour
-{    
-    public MeshRenderer meshRenderer;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+{
+    private GameManager sphereClick;
+     public MeshRenderer meshRenderer;
+    private void Start()
     {
+        sphereClick = FindAnyObjectByType<GameManager>();
         meshRenderer.material.color= Random.ColorHSV();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
     private void OnMouseDown()
     {
        
         Destroy(gameObject);
+        sphereClick.RemoveFromList(gameObject);
+       
     }
-    
 }
