@@ -21,15 +21,13 @@ public class SpawnManager : MonoBehaviour
         {
             CancelInvoke ("SpawnSphereWave");
         }
-
-        
-        
+   
     }
     void FixedUpdate()
     {
     if(Input.GetMouseButtonDown(0) && sphereCount < 10)
         {
-            InvokeRepeating("SpawnSphereWave", 2.5f, spawnInterval);
+            Start();
         }
     }
     private Vector3 GenerateSpawnPosition()
